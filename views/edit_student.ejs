@@ -4,17 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Student</title>
+
+    <style>
+        body {
+            background-color: #e8f5e9;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #c8e6c9;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #81c784;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #388e3c;
+        }
+
+        button {
+            background-color: #66bb6a;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1b5e20;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #004d40;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Edit Student</h1>
-    <form action="/student/<%= student._id %>?_method=PUT" method="POST">
-        <input type="text" name="name" value="<%= student.name %>" required>
-        <input type="number" name="age" value="<%= student.age %>" required>
-        <input type="text" name="course" value="<%= student.course %>" required>
-        <button type="submit">Update</button>
-    </form>
-    <br>
-    <a href="/students">Back to List</a>
+
+    <div class="container">
+        <form action="/student/<%= student._id %>?_method=PUT" method="POST">
+            <input type="text" name="name" value="<%= student.name %>" required>
+            <input type="number" name="age" value="<%= student.age %>" required>
+            <input type="text" name="course" value="<%= student.course %>" required>
+            <br>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+    <a href="/students" class="back-link">Back to List</a>
 </body>
 </html>

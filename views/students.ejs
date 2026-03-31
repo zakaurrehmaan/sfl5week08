@@ -1,21 +1,66 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Students List</title>
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students List</title>
 
-    <body>
-        <h1>Students List</h1>
-        <ul>
-            <% students.forEach(student=> { %>
-                <li><a href="/student/<%= student._id %>">
-                        <%= student.name %> - <%= student.course %>
-                    </a></li>
-                <% }) %>
-        </ul>
-        <a href="/student/new">Add a New Student</a>
-    </body>
+    <style>
+        body {
+            background-color: #e8f5e9; /* light green background */
+            font-family: Arial, sans-serif;
+        }
 
-    </html>
+        h1 {
+            color: #2e7d32; /* darker green */
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        li {
+            background-color: #c8e6c9;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1b5e20;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #004d40;
+        }
+
+        .add-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #1b5e20;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Students List</h1>
+    <ul>
+        <% students.forEach(student=> { %>
+            <li>
+                <a href="/student/<%= student._id %>">
+                    <%= student.name %> - <%= student.course %>
+                </a>
+            </li>
+        <% }) %>
+    </ul>
+
+    <a href="/student/new" class="add-link">Add a New Student</a>
+</body>
+</html>

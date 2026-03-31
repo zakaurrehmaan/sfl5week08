@@ -5,22 +5,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Details</title>
+
+    <style>
+        body {
+            background-color: #e8f5e9;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #c8e6c9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #1b5e20;
+            font-size: 16px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1b5e20;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            color: #004d40;
+        }
+
+        button {
+            background-color: #66bb6a;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+        .actions {
+            margin-top: 15px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Student Details</h1>
-    <p>ID: <%= student._id %>
-    </p>
-    <p>Name: <%= student.name %>
-    </p>
-    <p>Age: <%= student.age %>
-    </p>
-    <p>Course: <%= student.course %>
-    </p>
-    <a href="/student/<%= student._id %>/edit">Edit</a>
-    <form action="/student/<%= student._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
-    </form>
-    <br>
-    <a href="/students">Back to List</a>
+
+    <div class="container">
+        <p><strong>ID:</strong> <%= student._id %></p>
+        <p><strong>Name:</strong> <%= student.name %></p>
+        <p><strong>Age:</strong> <%= student.age %></p>
+        <p><strong>Course:</strong> <%= student.course %></p>
+
+        <div class="actions">
+            <a href="/student/<%= student._id %>/edit">Edit</a>
+
+            <form action="/student/<%= student._id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+
+    <a href="/students" class="back-link">Back to List</a>
 </body>
+
 </html>
